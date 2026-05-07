@@ -1,5 +1,7 @@
-Stand alone debuffed addon
-Replace your current folder with this one if you want all the custom things instead of a plain text box
+Debuffed
+An addon that tracks and displays debuffs on your current target. Filters are available to customise which debuffs are shown.
+
+Commands
 •//debuffed setup
 
 Toggles the visibility of your colored anchor boxes (the Red box for Debuffs and Blue box for Buffs).
@@ -12,8 +14,7 @@ Instantly teleports your Blue Box to the exact X and Y coordinates of your Red B
 
 This removes the need to manually line things up and is essential for your custom "center-origin" layout where buffs and debuffs perfectly mirror each other.
 
-If you line the boxes up side by side in setup mode and use this command, this will snap the blue box to match the height of the blue box.
-If you line up top to bottom it will snap to line up the sides of the boxes.
+If you line the boxes up side by side in setup mode and use this command, this will snap the blue box to match the height of the blue box. If you line up top to bottom it will snap to line up the sides of the boxes.
 
 •//debuffed buffdir
 
@@ -28,3 +29,36 @@ Allows you to manually set the exact X and Y pixel coordinates of your main anch
 •//debuffed mode
 
 Toggles between Icon mode and text mode, whichever you prefer.
+
+•//debuffed timers
+
+This toggles the display of timers for debuffs.
+
+•//debuffed interval <value>
+
+This allows you to adjust the refresh interval for the textbox. It will be updated every <value> number of seconds.
+
+•//debuffed hide
+
+This toggles the automatic removal of effects when their timer reaches zero.
+
+•//debuffed blacklist|whitelist add|remove <name>
+
+This adds or removes the spell <name> to the specified filter.
+
+•//debuffed filter
+
+Switches between blacklist and whitelist modes. Default set to blacklist
+
+Abbreviations
+The following abbreviations are available for addon commands:
+
+debuffed to dbf
+mode to m
+timers to t
+interval to i
+hide to h
+blacklist to b or blist or black
+whitelist to w or wlist or white
+add to a or +
+remove to r or -
