@@ -120,6 +120,9 @@ debuffs = {
     [135] = S{230}, --Bio I
 	[653] = S{231}, --Bio II
 	[654] = S{232}, --Bio III
+	[657] = S{80},  -- Paralyze II
+	[658] = S{79},  -- Slow II
+	[659] = S{276}, -- Blind II
 
 }
 
@@ -799,6 +802,32 @@ function inc_action(act)
 					else
 						effect = 0 
 					end
+				-- Paralyze Hierarchy
+				elseif effect == 4 then
+					if T{80}:contains(spell) then -- Spell ID for Paralyze II
+						effect = 657
+						if debuffed_mobs[target] then debuffed_mobs[target][4] = nil end
+					elseif debuffed_mobs[target] and debuffed_mobs[target][657] then
+						effect = 0 -- Ignores Paralyze I if Paralyze II is already active
+					end
+					
+				-- Slow Hierarchy
+				elseif effect == 13 then
+					if T{79}:contains(spell) then -- Spell ID for Slow II
+						effect = 658
+						if debuffed_mobs[target] then debuffed_mobs[target][13] = nil end
+					elseif debuffed_mobs[target] and debuffed_mobs[target][658] then
+						effect = 0 -- Ignores Slow I if Slow II is already active
+					end
+					
+				-- Blind Hierarchy
+				elseif effect == 5 then
+					if T{276}:contains(spell) then -- Spell ID for Blind II
+						effect = 659
+						if debuffed_mobs[target] then debuffed_mobs[target][5] = nil end
+					elseif debuffed_mobs[target] and debuffed_mobs[target][659] then
+						effect = 0 -- Ignores Blind I if Blind II is already active
+					end	
 				elseif effect == 217 then
 					if T{454,871}:contains(spell) then effect = 641
 					elseif T{455,872}:contains(spell) then effect = 642
